@@ -33,11 +33,11 @@ public class Pakli {
     }
 
     private void kever() {
-
+        //megkeveri a lapokat
     }
 
     private void ezVolt() {
-
+        System.out.println("A választott lap: " + pakli[11]);
     }
 
     public String[] getPakli() {
