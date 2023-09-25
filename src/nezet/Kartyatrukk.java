@@ -1,24 +1,22 @@
-package kartyatrukkkonzolon.Kartyatrukkoop;
+package nezet;
 
 import java.util.Scanner;
+import modell.Pakli;
+import static modell.Pakli.lapok;
 
-public class Kartyatrukk {
+public class KartyaTrukk {
 
     private static final Scanner sc = new Scanner(System.in);
     private Pakli pakli;
 
-    public Kartyatrukk() {
+    public KartyaTrukk() {
         int oszlop = 0;
         this.pakli = new Pakli();
         for (int i = 0; i < 3; i++) {
-            this.pakli.kirak();
+            kirak();
             melyik(oszlop);
         }
-        this.pakli.ezVolt();
-    }
-
-    public static void main(String[] args) {
-        new Kartyatrukk();
+        ezVolt();
     }
 
     private void melyik(int oszlop) {
@@ -30,5 +28,19 @@ public class Kartyatrukk {
         } while (!jo);
         this.pakli.kever(oszlop);
     }
+
+    private void kirak() {
+        for (int i = 1; i < lapok.length; i++) {
+            System.out.print(lapok[i].getLeiras());
+            if (i % 3 == 0) {
+                System.out.println(" ");
+            }
+        }
+    }
+    
+    private String ezVolt() {
+        return("A választott lap: " + lapok[11].getLeiras());
+    }
+
 
 }

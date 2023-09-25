@@ -1,4 +1,4 @@
-package kartyatrukkkonzolon.Kartyatrukkoop;
+package modell;
 
 public class Lap {
 
