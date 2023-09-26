@@ -2,44 +2,49 @@ package nezet;
 
 import java.util.Scanner;
 import modell.Pakli;
-import static modell.Pakli.lapok;
+import modell.Lap;
 
 public class KartyaTrukk {
 
-    private static final Scanner sc = new Scanner(System.in);
-    private Pakli pakli;
+     private static final Scanner sc = new Scanner(System.in);
+    private Pakli lapok;
+    private int oszlop = 0;
 
     public KartyaTrukk() {
-        int oszlop = 0;
-        this.pakli = new Pakli();
+        this.lapok = new Pakli();
         for (int i = 0; i < 3; i++) {
             kirak();
-            melyik(oszlop);
+            melyik();
         }
         ezVolt();
+
     }
 
-    private void melyik(int oszlop) {
+    private void melyik() {
         boolean jo;
         do {
             System.out.print("melyik oszlop (1-3): ");
             oszlop = sc.nextInt();
             jo = oszlop >= 1 && oszlop <= 3;
         } while (!jo);
-        this.pakli.kever(oszlop);
+        this.lapok.kever(oszlop);
     }
 
-    private void kirak() {
+    public int getOszlop() {
+        return oszlop;
+    }
+
+    void kirak() {
+        Lap[] lapok = this.lapok.getPakli();
         for (int i = 1; i < lapok.length; i++) {
-            System.out.print(lapok[i].getLeiras());
+            System.out.printf("%-8s", lapok[i].getLeiras());
             if (i % 3 == 0) {
-                System.out.println(" ");
+                System.out.println("");
             }
         }
     }
-    
-    private String ezVolt() {
-        return("A választott lap: " + lapok[11].getLeiras());
+    void ezVolt() {
+        System.out.println("A választott lap: " + lapok.ezVolt());
     }
 
 

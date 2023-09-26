@@ -1,12 +1,10 @@
 package modell;
- 
+
 public class Pakli {
-    
-    public static Lap[] lapok = new Lap[22];
-    public Pakli pakli = new Pakli();
+
+    private static Lap[] lapok = new Lap[22];
 
     public Pakli() {
-        
         feltolt();
     }
 
@@ -19,6 +17,10 @@ public class Pakli {
                 lapok[i++] = new Lap(szin + "_" + ertekek[e]);
             }
         }
+    }
+
+    public static Lap[] getPakli() {
+        return lapok;
     }
 
     public void kever(int oszlop) {
@@ -49,12 +51,8 @@ public class Pakli {
         lapok = ujPakli;
     }
 
-    
-
-    public Lap getPakli() {
+    public static String ezVolt() {
         return lapok[11].getLeiras();
     }
 
-    
-    
 }
